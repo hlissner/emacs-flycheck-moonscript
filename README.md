@@ -2,9 +2,7 @@
 
 This package provides support for the [Moonscript
 language](https://moonscript.org) to the [Flycheck
-package](http://www.flycheck.org) using the `moonc` and `moonpick` linters.
-
-To use it, have Flycheck installed, then add the following to your init file:
+package](http://www.flycheck.org).
 
 ## Installation
 
