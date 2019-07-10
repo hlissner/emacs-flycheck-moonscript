@@ -1,13 +1,14 @@
-;;; flycheck-moonscript.el -*- lexical-binding: t; -*-
+;;; flycheck-moonscript.el --- flycheck support for moonscript-mode -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (C) 2019 Henrik Lissner
 ;;
 ;; Author: Henrik Lissner <henrik@lissner.net>
-;; URL: https://github.com/hlissner/emacs-flycheck-moonscript
-;; Keywords: tools, convenience
+;; Maintainer: Henrik Lissner <henrik@lissner.net>
 ;; Created: July 9, 2019
 ;; Modified: July 9, 2019
 ;; Version: 1.0.0
+;; Keywords: tools, convenience
+;; Homepage: https://github.com/hlissner/emacs-flycheck-moonscript
 ;; Package-Requires: ((emacs "24.1") (flycheck "28"))
 ;;
 ;; This file is not part of GNU Emacs.
