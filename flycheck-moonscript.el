@@ -54,8 +54,7 @@
   :command ("moonc" "-l" source)
   :error-patterns ((warning line-start "line " line ": " (message))
                    (error line-start (message) ":\n [" line "]"))
-  :modes moonscript-mode
-  :prefix flycheck-buffer-saved-p)
+  :modes moonscript-mode)
 
 (add-to-list 'flycheck-checkers 'moonscript-moonc)
 (add-to-list 'flycheck-checkers 'moonscript-moonpick)
