@@ -43,7 +43,7 @@
 
 (flycheck-define-checker moonscript-moonpick
   "A Moonscript syntax and style checker using moonpick."
-  :command ("moonpick" "--filename" source-original)
+  :command ("moonpick" "--filename" source-original "-")
   :error-patterns ((warning line-start "line " line ": " (message))
                    (error line-start (message) ":\n [" line "]"))
   :standard-input t
