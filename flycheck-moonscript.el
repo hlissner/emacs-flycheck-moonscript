@@ -41,20 +41,32 @@
 (eval-and-compile
   (require 'flycheck))
 
+(defun flycheck-moonscript--find-default-directory (checker)
+  (when buffer-file-name
+    (pcase checker
+      (`moonscript-moonc
+       (locate-dominating-file buffer-file-name "lint_config.lua"))
+      (`moonscript-moonpick
+       (flycheck--locate-dominating-file-matching
+        (file-name-directory buffer-file-name)
+        "\\`lint_config\\.\\(lua\\|moon\\)\\'")))))
+
 (flycheck-define-checker moonscript-moonpick
   "A Moonscript syntax and style checker using moonpick."
   :command ("moonpick" "--filename" source-original)
   :error-patterns ((warning line-start "line " line ": " (message))
                    (error line-start (message) ":\n [" line "]"))
   :standard-input t
+  :working-directory flycheck-moonscript--find-default-directory
   :modes moonscript-mode)
 
 (flycheck-define-checker moonscript-moonc
   "A Moonscript syntax and style checker using moonc."
-  :command ("moonc" "-l" source)
+  :command ("moonc" "-l" source-inline)
   :error-patterns ((warning line-start "line " line ": " (message))
                    (error line-start (message) ":\n [" line "]"))
   :modes moonscript-mode
+  :working-directory flycheck-moonscript--find-default-directory
   :prefix flycheck-buffer-saved-p)
 
 (add-to-list 'flycheck-checkers 'moonscript-moonc)
